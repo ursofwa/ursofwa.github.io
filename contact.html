@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>URS Contact Us</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="Styles/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="Styles/small-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="Styles/navbar.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        <!--A {
+            text-decoration: none
+        }
+
+        -->
+    </style>
+    <script>
+        document.createElement('heading');
+        document.createElement('footer');
+    </script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.browser.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/modernizr-min.js"></script>
+    <script>var rcWidget = {}; </script>
+
+    <script>
+        if (!Modernizr.input.placeholder) {
+            $('input[placeholder], textarea[placeholder]').placeholder();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="heading"><a style="float: left;" href="/">URS of WA LLC</a> <a href="/">Home</a> <a href="services.html">Services</a> <a href="billpay.html">Log In/Billing</a> <a href="contact.html">Contact</a></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jumbotron" style="text-align: center;">Questions, comments, or concerns? Contact us, we would love to hear from you.
+                    <br />Phone: (877) 639-2307
+                    <br />Fax: (253) 566-5496</div>
+            </div>
+            <div id="contact-form">
+                <form id="contact" accept-charset="UTF-8" method="POST">
+                    <input type="hidden" name="utf8" value="✓">
+                    <fieldset>
+                        <label for="field-id-name">Name</label>
+                        <input type="text" name="name" id="field-id-name" placeholder="Full Name" title="Enter your name" class="required" />
+                        <label for="field-id-email">E-mail</label>
+                        <input type="email" name="email" id="field-id-email" placeholder="yourname@domain.com" title="Enter your e-mail address" class="required email" />
+                        <label for="field-id-phone">Phone</label>
+                        <input type="tel" name="phone" id="field-id-phone" placeholder="ex. (555) 555-5555" />
+                        <label for="field-id-account-number">Resident's Billing Account Number</label>
+                        <input type="tel" name="account-number" id="field-id-account-number" placeholder="Six digit number found on your invoice" />
+                        <label for="field-id-message">Question/Comment</label>
+                        <textarea name="message" id="field-id-message"></textarea>
+                        <label for="submit">Please complete the reCAPTCHA widget before submitting</label>
+                        <div id="recaptcha_html_element"></div>
+                        <input type="submit" name="submit" class="button disabled" id="submit" value="Send Message" />
+                        <label for="field-id-message">After clicking 'send message', please wait for a confirmation message.</label>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- /end #contact-form -->
+            <footer>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; URS of WA LLC. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const form = $('form#contact');
+        const submit = $('#submit');
+        const rcLabel = $('label[for="submit"]');
+        const rcElem = $('#recaptcha_html_element');
+        form.submit(function(e) {
+            e.preventDefault();
+            if(submit.hasClass('disabled')) {
+                rcLabel.css('color', 'red')
+                for(var x = 500; x < 2000; x = x + 500) {
+                    setTimeout(function() { rcLabel.css('color', 'black'); }, x);
+                    setTimeout(function() { rcLabel.css('color', 'red'); }, x + 250);
+                }
+            }
+            if(form.valid()) {
+                if(! submit.hasClass('disabled')) {
+                    $(form).ajaxSubmit({
+                        url: 'https://getform.io/f/afff4fad-1743-416e-bc61-4554723f2432',
+                        success: function() {
+                            $('#contact').hide();
+                            $('#contact-form').append("<p class='thanks'>Thanks! Your request has been sent.</p>")
+                        }
+                    });
+                }
+            }
+        });
+
+        var verifyCallback = function(response) {
+            if(response.length > 5) {
+                submit.removeClass("disabled");
+                rcLabel.hide();
+                rcElem.hide();
+            }
+        };
+
+        var onloadCallback = function() {
+            var rcWidget = grecaptcha.render('recaptcha_html_element', {
+                'sitekey' : '6LfPwa8UAAAAAL0PydCeg2OPBVjDk9hAuplCkGZE',
+                callback: verifyCallback
+            });
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+</body>
+
+</html>

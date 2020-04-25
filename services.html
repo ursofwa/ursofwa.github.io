@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>URS Services</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="Styles/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="Styles/small-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="Styles/navbar.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        <!--A {
+            text-decoration: none
+        }
+
+        -->
+    </style>
+    <script>
+        document.createElement('heading');
+        document.createElement('footer');
+    </script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.browser.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/modernizr-min.js"></script>
+
+    <script>
+        if (!Modernizr.input.placeholder) {
+            $('input[placeholder], textarea[placeholder]').placeholder();
+        }
+    </script>
+    <script>
+        $(function() {
+            $('#contact').validate({
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        url: '/process.php',
+                        success: function() {
+                            $('#contact').hide();
+                            $('#contact-form').append("<p class='thanks'>Thanks! Your request has been sent.</p>")
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div id="heading"><a style="float: left;" href="/">URS of WA LLC</a> <a href="/">Home</a> <a href="services.html">Services</a> <a href="billpay.html">Log In/Billing</a> <a href="contact.html">Contact</a></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jumbotron">
+                    <p>For the past 10 years, URS of WA LLC has been providing professional, personal service in the submetering field all across the Pacific Northwest. Whatever your needs may be, we are here to work with you
+                        to accomplish your goals.</p>
+                    So, how can we service you?</div>
+            </div>
+            <div class="col-lg-4">
+                <h2>Transmitters</h2>
+                <p>Our providers of radio-frequency transmitter equipment include, but are not limited to, Radiopath, Inovonics and Cereniti. These brands cover high and low-power installation.
+                    <br />
+                    <br />
+                    <br />
+                    <img class="img-responsive img-rounded" style="width: 350px; height: 200px;" src="Images/transmitter.png" alt="Transmitter" />
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Equipment</h2>
+                <p>While Master Meter and Meter Logic are our main equipment sources, we have access to other brands as well and are more than willing to work with you to meet your needs.
+                    <br />
+                    <br />
+                    <br />
+                    <img class="img-responsive img-rounded" style="width: 350px; height: 200px;" src="Images/meter.png" alt="Meter" />
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Partnerships</h2>
+                <p>We are fully insured and have consultants, plumbers and other staff on hand to make sure that we can meet each and every one of your needs. Your satisfaction is our guarantee.
+                    <br />
+                    <br />
+                    <br />
+                    <img class="img-responsive img-rounded" style="width: 350px; height: 200px;" src="Images/partnership.png" alt="Partnership" />
+                </p>
+            </div>
+        </div>
+        <footer>
+            <hr />
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; URS of WA LLC. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
